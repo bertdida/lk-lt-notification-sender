@@ -7,7 +7,12 @@ class NotificationSender
 {
     public static function send(array $payload): void
     {
-        $filename = __DIR__ . DIRECTORY_SEPARATOR . Uuid::uuid4();
+        $filepath = __DIR__ . DIRECTORY_SEPARATOR . 'temps';
+        if (!file_exists($filepath)) {
+            mkdir($filepath, 0777, true);
+        }
+
+        $filename = $filepath . DIRECTORY_SEPARATOR . Uuid::uuid4();
         file_put_contents($filename, json_encode($payload));
 
         $scriptPath = __DIR__ . DIRECTORY_SEPARATOR . 'send.js';
