@@ -1,10 +1,14 @@
 <?php
+define('ROOT_DIR', __DIR__);
+require_once ROOT_DIR . '/vendor/autoload.php';
+
+use Ramsey\Uuid\Uuid;
 
 class NotificationSender
 {
     public static function send(array $payload): void
     {
-        $filename = uniqid();
+        $filename = Uuid::uuid4();
         file_put_contents($filename, json_encode($payload));
         self::execInBackground("node send.js {$filename}");
     }
