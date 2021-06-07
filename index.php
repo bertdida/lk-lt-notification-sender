@@ -8,7 +8,7 @@ class NotificationSender
 {
     public static function send(array $payload): void
     {
-        $filename = Uuid::uuid4();
+        $filename = ROOT_DIR . DIRECTORY_SEPARATOR . Uuid::uuid4();
         file_put_contents($filename, json_encode($payload));
 
         $scriptPath = ROOT_DIR . DIRECTORY_SEPARATOR . 'send.js';
