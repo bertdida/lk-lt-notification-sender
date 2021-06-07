@@ -1,7 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 
-require("dotenv").config();
+require("dotenv").config({ path: `${__dirname}/.env` });
 
 const filename = process.argv[2];
 fs.readFile(filename, "utf8", async function (_, data) {
