@@ -1,0 +1,17 @@
+{
+  "name": "lk-lt-notification-sender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "send.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
