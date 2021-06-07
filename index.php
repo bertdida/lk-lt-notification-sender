@@ -10,7 +10,9 @@ class NotificationSender
     {
         $filename = Uuid::uuid4();
         file_put_contents($filename, json_encode($payload));
-        self::execInBackground("node send.js {$filename}");
+
+        $scriptPath = ROOT_DIR . DIRECTORY_SEPARATOR . 'send.js';
+        self::execInBackground("node {$scriptPath} {$filename}");
     }
 
     /**
